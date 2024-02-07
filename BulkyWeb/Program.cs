@@ -14,6 +14,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// wwwroot files will be available in application
 app.UseStaticFiles();
 
 app.UseRouting();
