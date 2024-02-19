@@ -1,7 +1,7 @@
-﻿using BulkyWeb.Models;
+﻿using Bulky.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BulkyWeb.Data
+namespace Bulky.DataAcess.Data
 {
     // DbContext is a class provided by EFC for interacting with a database
 	public class ApplicationDbContext : DbContext
