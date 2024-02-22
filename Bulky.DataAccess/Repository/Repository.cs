@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
-{
+{   // This is concrete repository class that implement the repository interface using Entity Framework
+    // This class interact with the underlying data storage and provide the necessary operations for data retrieval and manipulation.
     // The generic constraint where T : class ensures that T is a reference type (class)
     public class Repository<T> : IRepository<T> where T : class
 

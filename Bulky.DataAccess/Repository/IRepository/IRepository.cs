@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository.IRepository
 {
+    // abstract repository with methods for common operations
     public interface IRepository<T> where T : class
     {
         // T - Category
