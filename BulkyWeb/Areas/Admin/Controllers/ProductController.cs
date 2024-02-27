@@ -26,10 +26,6 @@ namespace BulkyWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Product obj)
         {
-            if (obj.Title == obj.ISBN.ToString())
-            {
-                ModelState.AddModelError("title", "The ISBN cannot exactly match the Title.");
-            }
 
             if (ModelState.IsValid)
             {
@@ -47,16 +43,16 @@ namespace BulkyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Product? obj = _unitOfWork.Product.Get(u => u.Id == id);
+            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
             //Category? obj = _db.Categories.FirstOrDefault(u=>u.Id==id);
             //Category? obj = _db.Categories.Where(u=>u.Id==id)FirstOrDefault();
 
-            if (obj == null)
+            if (productFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(obj);
+            return View(productFromDb);
         }
         [HttpPost]
         public IActionResult Edit(Product obj)
@@ -76,16 +72,16 @@ namespace BulkyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Product? obj = _unitOfWork.Product.Get(u => u.Id == id);
+            Product? productFromDb = _unitOfWork.Product.Get(u => u.Id == id);
             //Category? obj = _db.Categories.FirstOrDefault(u=>u.Id==id);
             //Category? obj = _db.Categories.Where(u=>u.Id==id)FirstOrDefault();
 
-            if (obj == null)
+            if (productFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(obj);
+            return View(productFromDb);
         }
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
